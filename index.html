@@ -1,335 +1,418 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rediet Ababayehu | Computer Science student, graduating April 2027</title>
+<meta name="description" content="Portfolio of Rediet Ababayehu, a computer science student at Trinity Western University graduating in April 2027, with two IEEE papers and a passion for assistive technology.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F4F6FA;
+    --surface: #FFFFFF;
+    --ink: #14173A;
+    --muted: #4B5070;
+    --line: #C9CEE0;
+    --accent: #3A3FB0;
+    --leaf: #1F7A4D;
+    --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+    --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #10122B;
+      --surface: #181B3D;
+      --ink: #EEF0FA;
+      --muted: #A6ABCB;
+      --line: #2C3060;
+      --accent: #8E93FF;
+      --leaf: #5FD39A;
+    }
+  }
 
-    <title>Rediet Ababayehu</title>
-    <meta content="" name="description" />
-    <meta content="" name="keywords" />
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--body); font-size: 1.125rem; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  a:hover { color: var(--accent); }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon" />
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+  .skip { position: absolute; left: 1rem; top: -4rem; background: var(--ink); color: var(--paper); padding: 0.6rem 1rem; z-index: 10; }
+  .skip:focus { top: 1rem; }
+  .wrap { width: min(100% - 3rem, 66rem); margin-inline: auto; }
 
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=https://fonts.googleapis.com/css?family=Inconsolata:400,500,600,700|Raleway:400,400i,500,500i,600,600i,700,700i"
-      rel="stylesheet"
-    />
+  header.site { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; padding-block: 1.5rem; }
+  .mark { font-family: var(--display); font-weight: 700; font-size: 1.15rem; text-decoration: none; }
+  nav ul { display: flex; gap: 1.75rem; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
+  nav a { text-decoration: none; padding-block: 0.25rem; border-bottom: 2px solid transparent; }
+  nav a:hover { border-bottom-color: var(--accent); color: inherit; }
 
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-    <link
-      href="assets/vendor/bootstrap/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  /* Hero */
+  .hero { padding-block: clamp(3rem, 9vw, 7rem) clamp(3rem, 7vw, 5rem); }
+  h1 {
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1.04; letter-spacing: -0.03em;
+    margin: 0 0 1.5rem; max-width: 17ch;
+  }
+  .lede { font-size: clamp(1.2rem, 2.4vw, 1.5rem); max-width: 38rem; margin: 0 0 2rem; line-height: 1.5; }
+  .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 0.7rem 1.3rem; border-radius: 0.4rem; font-weight: 700; text-decoration: none; border: 2px solid var(--ink); }
+  .btn.primary { background: var(--ink); color: var(--paper); }
+  .btn.primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn.secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-    <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+  .facts {
+    display: grid; gap: 1.5rem 3rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    margin: clamp(2.5rem, 6vw, 4rem) 0 0; padding-top: 1.75rem; border-top: 1px solid var(--line);
+  }
+  .facts dt { color: var(--muted); font-size: 1rem; }
+  .facts dd { margin: 0.15rem 0 0; font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.25; }
 
-    <!-- =======================================================
-  * Template Name: MyPortfolio
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/myportfolio-bootstrap-portfolio-website-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-  </head>
+  /* Sections */
+  section { padding-block: clamp(3rem, 7vw, 5rem); border-top: 1px solid var(--line); }
+  h2 { font-family: var(--display); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 1.5rem; }
+  h3 { font-family: var(--display); font-weight: 700; font-size: 1.4rem; line-height: 1.25; margin: 0 0 0.4rem; }
+  p { margin: 0 0 1rem; max-width: 40rem; }
 
-  <body>
-    <!-- ======= Navbar ======= -->
-    <div class="collapse navbar-collapse custom-navmenu" id="main-navbar">
-      <div class="container py-2 py-md-5">
-        <div class="row align-items-start">
-          <div class="col-md-2">
-            <ul class="custom-menu">
-              <li class="active"><a href="index.html">Home</a></li>
-              <li><a href="#Projects">Works</a></li>
-            </ul>
-          </div>
-        </div>
+  /* Filter */
+  .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 1rem; }
+  .count { color: var(--muted); font-size: 1rem; margin: 0 0 2rem; }
+  .filters button {
+    font: inherit; font-weight: 700; color: var(--ink); background: transparent;
+    border: 2px solid var(--line); border-radius: 2rem; padding: 0.35rem 1rem; cursor: pointer;
+  }
+  .filters button:hover { border-color: var(--accent); }
+  .filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  /* Rows shared by projects, publications, experience */
+  .rows { list-style: none; margin: 0; padding: 0; }
+  .row {
+    display: grid; gap: 0.75rem 3rem; grid-template-columns: 1fr;
+    padding-block: 2rem; border-top: 1px solid var(--line);
+  }
+  .row:first-child, .row.first { border-top: 0; padding-top: 0; }
+  .row[hidden] { display: none; }
+  @media (min-width: 52rem) { .row { grid-template-columns: 4fr 8fr; } }
+  .when { color: var(--muted); font-size: 1rem; margin: 0; }
+  .row .body p { color: var(--muted); }
+  .row .body p.lead { color: var(--ink); font-size: 1.2rem; }
+  .row ul.points { margin: 0 0 1rem; padding-left: 1.2rem; color: var(--muted); max-width: 40rem; }
+  .row ul.points li { margin-bottom: 0.4rem; }
+  .row ul.points strong { color: var(--ink); }
+  .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0 0 1rem; }
+  .tags li { font-size: 0.95rem; border: 1px solid var(--line); background: var(--surface); border-radius: 0.3rem; padding: 0.1rem 0.6rem; }
+  .links { display: flex; gap: 1.25rem; flex-wrap: wrap; font-weight: 700; margin: 0; }
+  .status { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1rem; color: var(--muted); margin: 0; }
+  .status::before { content: ""; width: 0.65rem; height: 0.65rem; border-radius: 50%; background: var(--leaf); flex: none; }
+  .status.early::before { background: transparent; border: 2px solid var(--leaf); }
+  .authors { color: var(--muted); }
+  .authors strong { color: var(--ink); }
+  .venue { color: var(--ink); font-weight: 700; margin: 0.25rem 0 0.75rem; }
+
+  /* Two-column text sections */
+  .split { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+  @media (min-width: 52rem) { .split { grid-template-columns: 4fr 8fr; gap: 3rem; } .split h2 { margin: 0; } }
+  .edu { margin: 0 0 2.5rem; max-width: 40rem; }
+  .edu dt { font-family: var(--display); font-weight: 700; font-size: 1.25rem; }
+  .edu dd { margin: 0.2rem 0 0; color: var(--muted); }
+  h3.sub { font-size: 1.15rem; margin: 0 0 1rem; }
+  .skills { display: grid; gap: 0.9rem; margin: 0; max-width: 40rem; }
+  .skills dt { font-weight: 700; }
+  .skills dd { margin: 0.1rem 0 0; color: var(--muted); }
+  .contact-list { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 0.5rem; font-weight: 700; }
+
+  footer { padding-block: 2.5rem 3rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.95rem; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="wrap">
+  <header class="site">
+    <a class="mark" href="#top">Rediet Ababayehu</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="hero" id="top">
+      <h1>Technology that makes people's lives better.</h1>
+      <p class="lede">I'm Rediet (Red), a computer science student and researcher at Trinity Western University, graduating in April 2027. I'm passionate about assistive technology and building software for people who are often overlooked.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn secondary" href="https://github.com/redietababayehu">GitHub</a>
+        <a class="btn secondary" href="#contact">Get in touch</a>
       </div>
+
+      <dl class="facts">
+        <div><dt>Graduating</dt><dd>April 2027</dd></div>
+        <div><dt>Degree</dt><dd>BSc Computer Science, Trinity Western University</dd></div>
+        <div><dt>Research</dt><dd>Two IEEE UEMCON papers, 2025 and 2026</dd></div>
+        <div><dt>Focus</dt><dd>Assistive technology and accessible design</dd></div>
+      </dl>
     </div>
 
-    <nav class="navbar navbar-light custom-navbar">
-      <div class="container">
-        <a class="navbar-brand" href="index.html"
-          ><img src="assets/img/Rediet_LOGO_3.png" style="height: 170px"
-        /></a>
-        <a
-          href="#"
-          class="burger"
-          data-bs-toggle="collapse"
-          data-bs-target="#main-navbar"
-        >
-          <span></span>
-        </a>
+    <section id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title">Projects</h2>
+
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="assistive" aria-pressed="false">Assistive technology</button>
+        <button type="button" data-filter="research" aria-pressed="false">Research</button>
+        <button type="button" data-filter="software" aria-pressed="false">Software</button>
       </div>
-    </nav>
+      <p class="count" id="filter-status" role="status" aria-live="polite"></p>
 
-    <main id="main">
-      <!-- ======= Works Section ======= -->
-      <section class="section site-portfolio">
-        <div class="container">
-          <div class="row mb-5 align-items-center">
-            <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
-              <h2><b>Hey, I'm Rediet Ababayehu</b></h2>
-              <p class="mb-0">
-                Computer Science Student &amp; Learning Enthusiast
-              </p>
-            </div>
-            <div
-              class="col-md-12 col-lg-6 text-start text-lg-end"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            ></div>
+      <ul class="rows" id="project-list">
+
+        <li class="row" data-cat="assistive research">
+          <div>
+            <h3>GardenPro</h3>
+            <p class="when">May 2026 to present</p>
           </div>
-
-          <div id="Projects" class="row mb-4 align-items-center">
-            <div class="col-md-12 col-lg-6 mb-2 mb-lg-0" data-aos="fade-up">
-              <h1>Projects</h1>
-              <div
-                class="col-md-12 col-lg-6 text-start text-lg-end"
-                data-aos="fade-up"
-                data-aos-delay="100"
-              ></div>
-            </div>
+          <div class="body">
+            <p class="lead">An audio-first app for smart glasses that helps blind and low-vision children identify plants and hear how to care for them.</p>
+            <ul class="points">
+              <li><strong>CARA.</strong> I created the Confidence-Aware Adaptive Response Architecture, which maps identification confidence to different spoken responses so the app never presents an uncertain guess as fact.</li>
+              <li><strong>Growth tracking.</strong> Children track plants over time by voice, and Soundex phonetic matching handles speech-to-text errors in plant names.</li>
+              <li><strong>Seed pre-detection</strong> using Claude vision, alongside PlantNet for plant identification and ElevenLabs for speech.</li>
+              <li><strong>Usability study.</strong> I ran a 5-task study with 13 participants, preparing consent forms, facilitator scripts, and age-matched questionnaires. Command recognition and renaming were the main pain points.</li>
+              <li><strong>Community-informed.</strong> Shaped by early outreach to Blind Beginnings.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>MentraOS SDK</li><li>Bun</li><li>PlantNet API</li><li>Claude API</li><li>ElevenLabs TTS</li>
+            </ul>
+            <p class="links"><a href="https://github.com/redietababayehu">Source code</a><a href="#publications">Read the paper</a></p>
           </div>
+        </li>
 
-          <div
-            id="portfolio-grid"
-            class="row no-gutter"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <div
-              class="item branding col-sm-6 col-md-4 col-lg-4 mb-4"
-              style="text-align: center"
-            >
-              <div style="font-size: 20px">
-                Programming Language Analysis API
-              </div>
-              <div class="tech-used mb-2">
-                <span
-                  class="badge badge-pill badge-primary"
-                  style="background-color: rgb(48 26 56)"
-                  >Python</span
-                >
-                <span
-                  class="badge badge-pill badge-primary"
-                  style="background-color: rgb(48 26 56)"
-                >
-                  flask</span
-                >
-                <span
-                  class="badge badge-pill badge-primary"
-                  style="background-color: rgb(48 26 56)"
-                >
-                  Pandas</span
-                >
-                <span
-                  class="badge badge-pill badge-primary"
-                  style="background-color: rgb(37, 32, 62)"
-                >
-                  Matplotlib</span
-                >
-              </div>
-              <a href="#" class="item-wrap fancybox">
-                <div class="work-info">
-                  <h3></h3>
-                  This is a collection of APIs that gives the user informtion
-                  about specific trends of progrmming language usage over time
-                  in the format of an image or JSON
-                </div>
-                <!-- <img class="img-fluid" src="assets/img/img_3.jpg" /> -->
-                <i
-                  class="fa-solid fa-laptop-code"
-                  style="font-size: 160px; color: #775681"
-                ></i>
-              </a>
-              <a
-                href="https://github.com/redietababayehu/programming-language-timeline"
-                target="_blank"
-                style="text-decoration: underline"
-                >Source Code</a
-              >
-              |
-              <a
-                href="https://redietababayehu.pythonanywhere.com/api/trends/image"
-                target="_blank"
-                style="text-decoration: underline"
-                >Image Endpoint</a
-              >
-              |
-              <a
-                href="https://redietababayehu.pythonanywhere.com/api/summary"
-                target="_blank"
-                style="text-decoration: underline"
-                >JSON Endpoint</a
-              >
-            </div>
-            <div
-              class="item web col-sm-6 col-md-4 col-lg-4 mb-4"
-              style="text-align: center"
-            >
-              <div style="font-size: 18px">Spotify Time Machine</div>
-              <div class="tech-used mb-2">
-                <span
-                  class="badge badge-pill badge-primary"
-                  style="background-color: rgb(37, 32, 62)"
-                  >Python</span
-                >
-                <span
-                  class="badge badge-pill badge-primary"
-                  style="background-color: rgb(37, 32, 62)"
-                >
-                  Spotify API</span
-                >
-              </div>
-
-              <a href="#" class="item-wrap fancybox">
-                <div class="work-info">
-                  <h3></h3>
-                  This is an application that finds the 100 most popular songs
-                  of a user-provided year and adds tracks to a new playlist in
-                  the user’s account
-                </div>
-                <!-- <img class="img-fluid" src="assets/img/img_1.jpg" /> -->
-                <i
-                  class="fa-brands fa-spotify"
-                  style="font-size: 160px; color: #4d7a91"
-                ></i>
-              </a>
-              <a
-                href="https://github.com/redietababayehu/Spotify_Time_Machine"
-                target="_blank"
-                style="text-decoration: underline"
-                >Source Code</a
-              >
-              |
-              <a
-                href="https://github.com/redietababayehu/Spotify_Time_Machine"
-                target="_blank"
-                disabled
-                style="text-decoration: underline"
-                >Deployed Site</a
-              >
-            </div>
-            <div
-              class="item photography col-sm-6 col-md-4 col-lg-4 mb-4"
-              style="text-align: center"
-            >
-              <div style="font-size: 20px">Stock News Notifier</div>
-              <div class="tech-used mb-2">
-                <span
-                  class="badge badge-pill badge-primary"
-                  style="background-color: rgb(48 40 92)"
-                  >Python</span
-                >
-                <span
-                  class="badge badge-pill badge-primary"
-                  style="background-color: rgb(48 40 92)"
-                >
-                  Twilio API</span
-                >
-                <span
-                  class="badge badge-pill badge-primary"
-                  style="background-color: rgb(48 40 92)"
-                >
-                  Polygon API</span
-                >
-                <span
-                  class="badge badge-pill badge-primary"
-                  style="background-color: rgb(48 40 92)"
-                >
-                  NewsAPI</span
-                >
-              </div>
-              <a href="#" class="item-wrap fancybox">
-                <div class="work-info">
-                  <h3></h3>
-                  This is an application that notifies a user through SMS when
-                  there is a specified percentage change in a preselected stock
-                  with relevant news headlines
-                </div>
-                <!-- <img class="img-fluid" src="assets/img/img_2.jpg" /> -->
-                <i
-                  class="fa-solid fa-arrow-trend-up"
-                  style="font-size: 160px; color: #545a85c5"
-                ></i>
-              </a>
-              <a
-                href="https://github.com/redietababayehu/Stock-news-notifier"
-                target="_blank"
-                style="text-decoration: underline"
-                >Source Code</a
-              >
-            </div>
+        <li class="row" data-cat="assistive">
+          <div>
+            <h3>Refreshable Braille Learning Software</h3>
+            <p class="when">December 2025 to present</p>
           </div>
-        </div>
-      </section>
-      <!-- End  Works Section -->
-    </main>
-    <!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-    <footer class="footer" role="contentinfo">
-      <div class="container">
-        <div class="row">
-          <div
-            class="col-sm-12 social"
-            style="font-size: 3rem; text-align: center"
-          >
-            <a href="https://github.com/redietababayehu" target="_blank"
-              ><span class="bi bi-github" style="color: #36454f"></span
-            ></a>
-            <a href="#" target="_blank"
-              ><span
-                class="bi bi-file-earmark-pdf"
-                style="color: #36454f"
-              ></span
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/rediet-ababayehu"
-              target="_blank"
-              ><span class="bi bi-linkedin" style="color: #36454f"></span
-            ></a>
+          <div class="body">
+            <p class="lead">Software and curriculum that help children learn braille on any refreshable braille display.</p>
+            <ul class="points">
+              <li>Building display-agnostic software, with research into lower-cost hardware.</li>
+              <li>Exploring a haptic method for conveying text emphasis (bold and italics) in braille, and planning a technical paper.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>Dart</li><li>Flutter</li>
+            </ul>
+            <p class="status early">In progress</p>
+            <p class="links" style="margin-top:1rem"><a href="https://github.com/redietababayehu">Source code</a></p>
           </div>
+        </li>
+
+        <li class="row" data-cat="research">
+          <div>
+            <h3>Stance analysis of YouTube comments</h3>
+            <p class="when">May to August 2025</p>
+          </div>
+          <div class="body">
+            <p class="lead">A study of online discourse after severe extremist attacks, using large YouTube comment and reply datasets.</p>
+            <ul class="points">
+              <li>Built data pipelines to clean, filter, and label millions of text records, including language detection, sentiment scoring, and feature engineering.</li>
+              <li>Used LLMs for sentiment, emotion, and stance analysis, then measured how emotionally opposing comments affect engagement and discussion.</li>
+              <li>Combined NLP, network analysis, and statistics in a paper published at IEEE UEMCON 2025.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>Python</li><li>LLMs</li><li>NLP</li><li>Network analysis</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="row" data-cat="software">
+          <div>
+            <h3>FoodLink Registration Application</h3>
+            <p class="when">December 2025</p>
+          </div>
+          <div class="body">
+            <p class="lead">A full-stack Flutter mobile app for event registration, built with an Agile team.</p>
+            <ul class="points">
+              <li>Multi-page navigation, state management, and dynamic UI components.</li>
+              <li>Fetches, displays, and passes event data between screens, with correct handling of dates, times, and user input.</li>
+              <li>Asynchronous backend data flow for real-time content updates.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>Dart</li><li>Flutter</li><li>Firebase</li>
+            </ul>
+            <p class="links"><a href="https://github.com/redietababayehu">Source code</a></p>
+          </div>
+        </li>
+
+        <li class="row" data-cat="software">
+          <div>
+            <h3>Programming Language Analysis API</h3>
+            <p class="when">January 2024</p>
+          </div>
+          <div class="body">
+            <p class="lead">A REST API that tracks how popular programming languages are, based on Stack Overflow post counts.</p>
+            <ul class="points">
+              <li>Five endpoints that return JSON or charts as images.</li>
+              <li>An analysis endpoint that processes user-uploaded CSV files, so people can explore their own data.</li>
+              <li>Raw post counts restructured and aggregated with pandas pivot tables into readable output.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>Python</li><li>Flask</li><li>pandas</li><li>Matplotlib</li>
+            </ul>
+            <p class="links"><a href="https://github.com/redietababayehu">Source code</a></p>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <section id="publications" aria-labelledby="publications-title">
+      <h2 id="publications-title">Publications</h2>
+      <ul class="rows">
+        <li class="row">
+          <div>
+            <h3>2026</h3>
+            <p class="status early">Accepted, publication forthcoming</p>
+          </div>
+          <div class="body">
+            <p class="lead">GardenPro: Confidence-Aware Plant Identification and Longitudinal Tracking Using Audio-First Smart Glasses for Accessible Gardening</p>
+            <p class="authors"><strong>Rediet Ababayehu</strong> and Andrew J. Park</p>
+            <p class="venue">UEMCON 2026, IEEE</p>
+          </div>
+        </li>
+        <li class="row">
+          <div>
+            <h3>2025</h3>
+            <p class="status">Published</p>
+          </div>
+          <div class="body">
+            <p class="lead">Stance Analysis of YouTube Comments on Videos about Severe Extremist Attacks</p>
+            <p class="authors"><strong>Rediet Ababayehu</strong>, Andrew J. Park, and Dominic Nootebos</p>
+            <p class="venue">UEMCON 2025, IEEE</p>
+            <p class="links"><a href="https://github.com/redietababayehu">Paper link</a></p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title">Experience</h2>
+      <ul class="rows">
+        <li class="row">
+          <div>
+            <h3>Undergraduate Research Assistant, Assistive Technology</h3>
+            <p class="when">Trinity Western University, May 2026 to present</p>
+          </div>
+          <div class="body">
+            <p>I design and build accessible technology for blind and low-vision children, from the GardenPro smart glasses app to refreshable braille learning software. See <a href="#projects">Projects</a> for details.</p>
+          </div>
+        </li>
+        <li class="row">
+          <div>
+            <h3>Undergraduate Research Assistant, Natural Language Processing</h3>
+            <p class="when">Trinity Western University, May to August 2025</p>
+          </div>
+          <div class="body">
+            <p>I analyzed large-scale YouTube comment datasets with LLMs to study online ideological discourse, which led to my first IEEE paper.</p>
+          </div>
+        </li>
+        <li class="row">
+          <div>
+            <h3>Volunteer Teaching Assistant, Coding Camp for Refugee Children</h3>
+            <p class="when">New Hope Community, summers 2025 and 2026</p>
+          </div>
+          <div class="body">
+            <ul class="points">
+              <li>Assisted a professor in running two-day introductory coding courses for 12 refugee children aged 6 to 12.</li>
+              <li>Helped children troubleshoot their code and stay engaged using Scratch, adapting explanations to different ages and English levels.</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <div class="split">
+        <h2 id="about-title">About</h2>
+        <div>
+          <p>I want a career where technology improves people's lives, especially for people who are often left out of how technology gets designed. That's what drew me to assistive technology, and I like projects where the people I'm building for shape the design from the start.</p>
+
+          <dl class="edu">
+            <dt>Trinity Western University</dt>
+            <dd>BSc Computer Science, graduating April 2027. GPA 4.1 / 4.3. President's Scholarship and Dean's List.</dd>
+            <dd>Courses include Data Structures and Algorithms, Software Engineering, Computer Graphics, Discrete Mathematics, Web Development, Databases (in progress), and Computer Networking (in progress).</dd>
+          </dl>
+
+          <h3 class="sub">Skills</h3>
+          <dl class="skills">
+            <div><dt>Languages</dt><dd>Python, Java, Dart, JavaScript, SQL, HTML, CSS</dd></div>
+            <div><dt>Frameworks and APIs</dt><dd>Flutter, Flask, pandas, Matplotlib, Firebase, MentraOS SDK, PlantNet API, Claude API, ElevenLabs TTS</dd></div>
+            <div><dt>Tools</dt><dd>Git, Figma, VS Code, Android Studio, Bun, PostgreSQL</dd></div>
+            <div><dt>Practices</dt><dd>Agile/Scrum, SDLC, usability testing, stakeholder communication, accessible and audio-first design</dd></div>
+          </dl>
         </div>
       </div>
-    </footer>
+    </section>
 
-    <a
-      href="#"
-      class="back-to-top d-flex align-items-center justify-content-center"
-      ><i class="bi bi-arrow-up-short"></i
-    ></a>
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="split">
+        <h2 id="contact-title">Contact</h2>
+        <div>
+          <p>I'm looking for roles starting after I graduate in April 2027, and I'm open to research collaborations and conversations about accessible design.</p>
+          <ul class="contact-list">
+            <li><a href="mailto:rediet.ababayehu@mytwu.ca">rediet.ababayehu@mytwu.ca</a></li>
+            <li><a href="https://github.com/redietababayehu">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/rediet-ababayehu">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/aos/aos.js"></script>
-    <!-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <footer>
+    <p>&copy; 2026 Rediet Ababayehu</p>
+  </footer>
+</div>
 
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
-  </body>
+<script>
+  const buttons = document.querySelectorAll('.filters button');
+  const items = Array.from(document.querySelectorAll('#project-list .row'));
+  const status = document.getElementById('filter-status');
+
+  function inCategory(li, f) {
+    return f === 'all' || li.dataset.cat.split(' ').includes(f);
+  }
+
+  // Show how many projects each tab contains
+  buttons.forEach(btn => {
+    const n = items.filter(li => inCategory(li, btn.dataset.filter)).length;
+    btn.textContent = btn.textContent + ' (' + n + ')';
+  });
+
+  function apply(f) {
+    buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filter === f)));
+    items.forEach(li => { li.hidden = !inCategory(li, f); li.classList.remove('first'); });
+    const visible = items.filter(li => !li.hidden);
+    if (visible.length) visible[0].classList.add('first');
+    status.textContent = f === 'all'
+      ? 'Showing all ' + items.length + ' projects'
+      : 'Showing ' + visible.length + ' of ' + items.length + ' projects';
+  }
+
+  buttons.forEach(btn => btn.addEventListener('click', () => apply(btn.dataset.filter)));
+  apply('all');
+</script>
+</body>
 </html>
